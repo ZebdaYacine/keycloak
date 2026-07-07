@@ -8,7 +8,7 @@ import (
 
 func Health(c *fiber.Ctx) error {
 	return c.JSON(fiber.Map{
-		"message": "Go Fiber API is running",
+		"message": "SEGMA API is running",
 	})
 }
 
@@ -16,7 +16,7 @@ func Private(c *fiber.Ctx) error {
 	claims := c.Locals("user").(*auth.Claims)
 
 	return c.JSON(fiber.Map{
-		"message": "Protected data from Go Fiber API",
+		"message": "Protected data from SEGMA API",
 		"subject": claims.Subject,
 		"issuer":  claims.Issuer,
 		"roles":   claims.RealmAccess.Roles,

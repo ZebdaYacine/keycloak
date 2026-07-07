@@ -70,7 +70,7 @@ pipeline {
             echo "Deployment completed successfully."
             echo "SEGMA Frontend : http://167.86.79.16:3001"
             echo "SEGMA Backend  : http://167.86.79.16:8901"
-            echo "ECHIFA Frontend: http://167.86.79.16:3002"
+            echo "ECHIFA Frontend: http://167.86.79.16:3000"
             echo "ECHIFA Backend : http://167.86.79.16:8902"
         }
 
