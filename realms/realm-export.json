@@ -1,0 +1,86 @@
+{
+  "realm": "cnas-sso",
+  "enabled": true,
+  "registrationAllowed": true,
+  "resetPasswordAllowed": true,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "clients": [
+    {
+      "clientId": "echifa-web",
+      "name": "ECHIFA Web App",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "echifa-web-secret",
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": [
+        "http://localhost:3000/api/auth/callback/keycloak"
+      ],
+      "webOrigins": [
+        "http://localhost:3000"
+      ],
+      "frontchannelLogout": true,
+      "attributes": {
+        "post.logout.redirect.uris": "http://localhost:3000/api/auth/logout##http://localhost:3000/"
+      }
+    },
+    {
+      "clientId": "segma-web",
+      "name": "SEGMA Web App",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "segma-web-secret",
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": [
+        "http://localhost:3001/api/auth/callback/keycloak"
+      ],
+      "webOrigins": [
+        "http://localhost:3001"
+      ],
+      "frontchannelLogout": true,
+      "attributes": {
+        "post.logout.redirect.uris": "http://localhost:3001/api/auth/logout##http://localhost:3001/"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "echifa.user",
+      "email": "echifa.user@example.com",
+      "firstName": "ECHIFA",
+      "lastName": "User",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "echifa1234",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "segma.user",
+      "email": "segma.user@example.com",
+      "firstName": "SEGMA",
+      "lastName": "User",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "segma1234",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}
