@@ -42,8 +42,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      AUTH_URL: "http://167.86.79.16:3002"
-      NEXTAUTH_URL: "http://167.86.79.16:3002"
+      AUTH_URL: "http://167.86.79.16:3000"
+      NEXTAUTH_URL: "http://167.86.79.16:3000"
       AUTH_SECRET: "change-this-secret"
       AUTH_KEYCLOAK_ID: "echifa-web"
       AUTH_KEYCLOAK_SECRET: "echifa-web-secret"
@@ -73,7 +73,6 @@ services:
       - start-dev
       - --http-enabled=true
       - --hostname-strict=false
-      - --hostname-strict-https=false
       - --import-realm
     environment:
       KC_DB: postgres
@@ -84,7 +83,6 @@ services:
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
       KC_HTTP_ENABLED: "true"
       KC_HOSTNAME_STRICT: "false"
-      KC_HOSTNAME_STRICT_HTTPS: "false"
     volumes:
       - ./realms/realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
     ports:
@@ -92,6 +90,5 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-
 volumes:
   kc_postgres_data:
