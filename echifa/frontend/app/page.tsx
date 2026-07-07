@@ -12,7 +12,7 @@ export default async function HomePage() {
       <Header session={session} />
 
       <Image
-        src="../cnas.png"
+        src="/cnas.png"
         width={500}
         height={500}
         alt="Picture of the author"
