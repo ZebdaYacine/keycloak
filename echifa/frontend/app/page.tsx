@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import { Header } from "@/app/_lib/components/Header";
 import { SignInButton } from "@/app/_lib/components/SignInButton";
 import Link from "next/link";
+import Image from "next/image";
 
 export default async function HomePage() {
   const session = await auth();
@@ -9,6 +10,13 @@ export default async function HomePage() {
   return (
     <>
       <Header session={session} />
+
+      <Image
+        src="../cnas.png"
+        width={500}
+        height={500}
+        alt="Picture of the author"
+      />
 
       <main className="mx-auto max-w-5xl p-8">
         <section className="rounded-xl border bg-white p-8">
