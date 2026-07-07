@@ -3,7 +3,7 @@ def buildBackend(String service) {
         sh """
             go mod tidy
             go test ./...
-            go build -o app .
+            go build -o app ./cmd/server
             docker build -t ${service}-backend:latest .
         """
     }
