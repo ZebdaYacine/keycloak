@@ -11,22 +11,23 @@ export default async function HomePage() {
     <>
       <Header session={session} />
 
-      <main className="mx-auto max-w-6xl p-8">
-        <section className="grid grid-cols-1 items-center gap-12 rounded-xl border bg-white p-8 md:grid-cols-2">
-          {/* Logo */}
-          <div className="flex justify-center">
+      <main className="mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl items-center px-8 pt-16 pb-8">
+        {" "}
+        <section className="flex w-full flex-col items-center justify-center gap-16 md:flex-row md:gap-24">
+          {/* Left - Logo */}
+          <div className="flex w-full justify-center md:w-1/2">
             <Image
               src="/cnas.png"
-              width={420}
-              height={420}
               alt="CNAS Logo"
+              width={200}
+              height={200}
               priority
-              className="h-auto w-full max-w-[420px]"
+              className="h-auto max-w-full"
             />
           </div>
 
-          {/* Content */}
-          <div>
+          {/* Right - Content */}
+          <div className="w-full md:w-1/2">
             <h1 className="text-4xl font-bold text-slate-900">
               ECHIFA CNAS Digital Card Platform
             </h1>
@@ -41,7 +42,7 @@ export default async function HomePage() {
               {session?.user ? (
                 <Link
                   href="/dashboard"
-                  className="rounded-md bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700 transition-colors"
+                  className="inline-block rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700"
                 >
                   Open ECHIFA Dashboard
                 </Link>

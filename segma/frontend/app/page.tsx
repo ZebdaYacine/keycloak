@@ -13,17 +13,6 @@ export default async function HomePage() {
 
       <main className="mx-auto max-w-6xl p-8">
         <section className="grid grid-cols-1 items-center gap-12 rounded-xl border bg-white p-8 md:grid-cols-2">
-          <div className="flex justify-center">
-            <Image
-              src="/cnas.png"
-              width={420}
-              height={420}
-              alt="CNAS Logo"
-              priority
-              className="h-auto w-full max-w-[420px]"
-            />
-          </div>
-
           <div>
             <h1 className="text-4xl font-bold text-slate-900">
               SEGMA CNAS Secure Document Platform
