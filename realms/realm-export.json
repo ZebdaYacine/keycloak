@@ -18,14 +18,14 @@
       "directAccessGrantsEnabled": false,
       "serviceAccountsEnabled": false,
       "redirectUris": [
-        "http://localhost:3000/api/auth/callback/keycloak"
+        "http://167.86.79.16:3000/api/auth/callback/keycloak"
       ],
       "webOrigins": [
-        "http://localhost:3000"
+        "http://167.86.79.16:3000"
       ],
       "frontchannelLogout": true,
       "attributes": {
-        "post.logout.redirect.uris": "http://localhost:3000/api/auth/logout##http://localhost:3000/"
+        "post.logout.redirect.uris": "http://167.86.79.16:3000/api/auth/logout##http://167.86.79.16:3000/"
       }
     },
     {
@@ -40,14 +40,14 @@
       "directAccessGrantsEnabled": false,
       "serviceAccountsEnabled": false,
       "redirectUris": [
-        "http://localhost:3001/api/auth/callback/keycloak"
+        "http://167.86.79.16:3001/api/auth/callback/keycloak"
       ],
       "webOrigins": [
-        "http://localhost:3001"
+        "http://167.86.79.16:3001"
       ],
       "frontchannelLogout": true,
       "attributes": {
-        "post.logout.redirect.uris": "http://localhost:3001/api/auth/logout##http://localhost:3001/"
+        "post.logout.redirect.uris": "http://167.86.79.16:3001/api/auth/logout##http://167.86.79.16:3001/"
       }
     }
   ],

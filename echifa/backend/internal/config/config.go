@@ -11,8 +11,8 @@ type Config struct {
 func Load() Config {
 	return Config{
 		Port:           getEnv("PORT", "8900"),
-		KeycloakIssuer: getEnv("KEYCLOAK_ISSUER", "http://127.0.0.1:8080/realms/cnas-sso"),
-		KeycloakJWKS:   getEnv("KEYCLOAK_JWKS_URL", "http://127.0.0.1:8080/realms/cnas-sso/protocol/openid-connect/certs"),
+		KeycloakIssuer: getEnv("KEYCLOAK_ISSUER", "http://167.86.79.16:8080/realms/cnas-sso"),
+		KeycloakJWKS:   getEnv("KEYCLOAK_JWKS_URL", "http://167.86.79.16:8080/realms/cnas-sso/protocol/openid-connect/certs"),
 	}
 }
 

@@ -10,7 +10,7 @@ docker compose up -d
 
 Open Keycloak:
 
-- URL: http://localhost:8080
+- URL: http://167.86.79.16:8080
 - Admin username: `admin`
 - Admin password: `admin`
 
@@ -49,7 +49,7 @@ pnpm dev
 Open:
 
 ```text
-http://localhost:3000
+http://167.86.79.16:3000
 ```
 
 Click **Sign in with Keycloak**.
@@ -75,5 +75,5 @@ Click **Sign in with Keycloak**.
 
 - `/dashboard` is protected.
 - `/api/auth/[...nextauth]` handles Auth.js callbacks.
-- Keycloak callback URL is `http://localhost:3000/api/auth/callback/keycloak`.
-- Web origin is `http://localhost:3000`.
+- Keycloak callback URL is `http://167.86.79.16:3000/api/auth/callback/keycloak`.
+- Web origin is `http://167.86.79.16:3000`.

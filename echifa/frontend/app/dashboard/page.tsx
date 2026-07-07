@@ -3,7 +3,7 @@ import { Header } from "@/app/_lib/components/Header";
 import { redirect } from "next/navigation";
 
 async function getCards(accessToken: string) {
-  const res = await fetch("http://localhost:8900/api/admin/cards", {
+  const res = await fetch("http://167.86.79.16:8900/api/admin/cards", {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

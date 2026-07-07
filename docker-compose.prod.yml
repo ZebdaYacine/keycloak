@@ -1,0 +1,50 @@
+services:
+  segma-backend:
+    image: segma-backend:latest
+    container_name: segma-backend
+    restart: always
+    ports:
+      - "8901:8900"
+    environment:
+      PORT: "8900"
+      KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
+      KEYCLOAK_JWKS_URL: "http://167.86.79.16:8080/realms/cnas-sso/protocol/openid-connect/certs"
+
+  segma-frontend:
+    image: segma-frontend:latest
+    container_name: segma-frontend
+    restart: always
+    ports:
+      - "3001:3000"
+    environment:
+      AUTH_URL: "http://167.86.79.16:3001"
+      NEXTAUTH_URL: "http://167.86.79.16:3001"
+      AUTH_SECRET: "change-this-secret"
+      AUTH_KEYCLOAK_ID: "segma-web"
+      AUTH_KEYCLOAK_SECRET: "segma-web-secret"
+      AUTH_KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
+
+  echifa-backend:
+    image: echifa-backend:latest
+    container_name: echifa-backend
+    restart: always
+    ports:
+      - "8902:8900"
+    environment:
+      PORT: "8900"
+      KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
+      KEYCLOAK_JWKS_URL: "http://167.86.79.16:8080/realms/cnas-sso/protocol/openid-connect/certs"
+
+  echifa-frontend:
+    image: echifa-frontend:latest
+    container_name: echifa-frontend
+    restart: always
+    ports:
+      - "3002:3000"
+    environment:
+      AUTH_URL: "http://167.86.79.16:3002"
+      NEXTAUTH_URL: "http://167.86.79.16:3002"
+      AUTH_SECRET: "change-this-secret"
+      AUTH_KEYCLOAK_ID: "echifa-web"
+      AUTH_KEYCLOAK_SECRET: "echifa-web-secret"
+      AUTH_KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
