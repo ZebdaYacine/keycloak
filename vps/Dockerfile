@@ -12,22 +12,22 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm
 
-# Streamlined: Download the key directly to keyrings without piping to gpg
+# Download the key directly to keyrings
 RUN install -m 0755 -d /etc/apt/keyrings && \
     curl -fsSL https://docker.com -o /etc/apt/keyrings/docker.asc && \
     chmod a+r /etc/apt/keyrings/docker.asc
 
-# Add the repository referencing our .asc file
+# Add the repository referencing the correct DOWNLOAD domain
 RUN echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://docker.com \
   bookworm stable" | \
   tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Install the correct docker-ce-cli and docker-compose-plugin
-RUN apt-get update && apt-get install -y \
-    docker-ce-cli \
-    docker-compose-plugin \
-    && rm -rf /var/lib/apt/lists/*
+# Clean previous repository state and install packages
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get update && \
+    apt-get install -y docker-ce-cli docker-compose-plugin
 
 # Install Go
 RUN curl -fsSL https://go.dev \
