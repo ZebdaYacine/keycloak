@@ -73,6 +73,7 @@ services:
       - start-dev
       - --http-enabled=true
       - --hostname-strict=false
+      - --hostname-strict-https=false
       - --import-realm
     environment:
       KC_DB: postgres
