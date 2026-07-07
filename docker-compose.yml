@@ -71,6 +71,8 @@ services:
     restart: unless-stopped
     command:
       - start-dev
+      - --http-enabled=true
+      - --hostname-strict=false
       - --import-realm
     environment:
       KC_DB: postgres
@@ -81,6 +83,7 @@ services:
       KC_BOOTSTRAP_ADMIN_PASSWORD: change_this_admin_password
       KC_HTTP_ENABLED: "true"
       KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_STRICT_HTTPS: "false"
     volumes:
       - ./realms/realm-export.json:/opt/keycloak/data/import/realm-export.json:ro
     ports:
