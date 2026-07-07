@@ -56,7 +56,7 @@ services:
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
-      POSTGRES_PASSWORD: change_this_db_password
+      POSTGRES_PASSWORD: admin
     volumes:
       - kc_postgres_data:/var/lib/postgresql/data
     healthcheck:
