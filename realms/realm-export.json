@@ -54,34 +54,35 @@
   ],
   "users": [
     {
-      "username": "echifa.user",
-      "email": "echifa.user@example.com",
-      "firstName": "ECHIFA",
+      "username": "cnas.user1",
+      "email": "cnas.user@example.com",
+      "firstName": "CNAS",
       "lastName": "User",
       "enabled": true,
       "emailVerified": true,
       "credentials": [
         {
           "type": "password",
-          "value": "echifa1234",
+          "value": "user02",
           "temporary": false
         }
       ]
     },
     {
-      "username": "segma.user",
-      "email": "segma.user@example.com",
-      "firstName": "SEGMA",
+      "username": "cnas.user2",
+      "email": "cnas.user@example.com",
+      "firstName": "CNAS",
       "lastName": "User",
       "enabled": true,
       "emailVerified": true,
       "credentials": [
         {
           "type": "password",
-          "value": "segma1234",
+          "value": "user02",
           "temporary": false
         }
       ]
     }
+   
   ]
 }
