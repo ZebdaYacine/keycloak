@@ -9,7 +9,9 @@ async function getCards(accessToken: string) {
     throw new Error("API_URL or NEXT_PUBLIC_API_URL environment variable is required");
   }
 
-  const res = await fetch(`${apiUrl}/api/admin/cards`, {
+  const cardsUrl = `${apiUrl}/api/admin/cards`;
+
+  const res = await fetch(cardsUrl, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -17,7 +19,7 @@ async function getCards(accessToken: string) {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to load cards");
+    throw new Error(`Failed to load cards from ${cardsUrl}: ${res.status}`);
   }
 
   return res.json();

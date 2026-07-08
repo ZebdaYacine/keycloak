@@ -9,7 +9,9 @@ async function getProducts(accessToken: string) {
     throw new Error("API_URL or NEXT_PUBLIC_API_URL environment variable is required");
   }
 
-  const res = await fetch(`${apiUrl}/api/segma/admin`, {
+  const productsUrl = `${apiUrl}/api/admin/segma`;
+
+  const res = await fetch(productsUrl, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -17,7 +19,7 @@ async function getProducts(accessToken: string) {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to load products");
+    throw new Error(`Failed to load products from ${productsUrl}: ${res.status}`);
   }
 
   return res.json();
