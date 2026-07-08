@@ -6,6 +6,28 @@
   "resetPasswordAllowed": true,
   "loginWithEmailAllowed": true,
   "duplicateEmailsAllowed": false,
+
+  "roles": {
+    "realm": [
+      {
+        "name": "cards:r",
+        "description": "Read cards"
+      },
+      {
+        "name": "cards:ri",
+        "description": "Read and Insert cards"
+      },
+      {
+        "name": "cards:riu",
+        "description": "Read, Insert and Update cards"
+      },
+      {
+        "name": "cards:riud",
+        "description": "Full administrator"
+      }
+    ]
+  },
+
   "clients": [
     {
       "clientId": "echifa-web",
@@ -52,14 +74,18 @@
       }
     }
   ],
+
   "users": [
     {
-      "username": "cnas.user1",
-      "email": "cnas.user@example.com",
+      "username": "cnas.admin",
+      "email": "admin@cnas.local",
       "firstName": "CNAS",
-      "lastName": "User",
+      "lastName": "Administrator",
       "enabled": true,
       "emailVerified": true,
+      "realmRoles": [
+        "cards:riud"
+      ],
       "credentials": [
         {
           "type": "password",
@@ -69,12 +95,15 @@
       ]
     },
     {
-      "username": "cnas.user2",
-      "email": "cnas.user@example.com",
+      "username": "cnas.user",
+      "email": "user@cnas.local",
       "firstName": "CNAS",
       "lastName": "User",
       "enabled": true,
       "emailVerified": true,
+      "realmRoles": [
+        "cards:r"
+      ],
       "credentials": [
         {
           "type": "password",
@@ -83,6 +112,5 @@
         }
       ]
     }
-   
   ]
 }
