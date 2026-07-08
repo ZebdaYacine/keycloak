@@ -1,6 +1,7 @@
 {
   "realm": "cnas-sso",
   "enabled": true,
+  "sslRequired": "NONE",
   "registrationAllowed": true,
   "resetPasswordAllowed": true,
   "loginWithEmailAllowed": true,
