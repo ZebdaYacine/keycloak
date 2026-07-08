@@ -86,7 +86,7 @@
       "credentials": [
         {
           "type": "password",
-          "value": "user02",
+          "value": "admin03",
           "temporary": false
         }
       ]
@@ -105,7 +105,7 @@
       "credentials": [
         {
           "type": "password",
-          "value": "user02",
+          "value": "user03",
           "temporary": false
         }
       ]
