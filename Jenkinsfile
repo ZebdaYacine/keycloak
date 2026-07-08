@@ -53,10 +53,31 @@ pipeline {
             }
         }
 
+        stage('Clean Previous Deployment') {
+            steps {
+                sh '''
+                    docker compose -f docker-compose.yml down --remove-orphans || true
+
+                    docker rm -f \
+                        segma-frontend \
+                        segma-backend \
+                        echifa-frontend \
+                        echifa-backend \
+                        keycloak \
+                        kc-postgres || true
+
+                    docker volume rm \
+                        keycloak_kc_postgres_data \
+                        kc_postgres_data || true
+
+                    docker ps
+                '''
+            }
+        }
+
         stage('Deploy') {
             steps {
                 sh """
-                    docker compose -f docker-compose.yml down || true
                     docker compose -f docker-compose.yml up -d --remove-orphans
                     docker image prune -f
                     docker ps
