@@ -90,12 +90,18 @@ services:
       AUTH_URL: "http://167.86.79.16:3000"
       NEXTAUTH_URL: "http://167.86.79.16:3000"
       AUTH_SECRET: "change-this-secret"
+
       AUTH_KEYCLOAK_ID: "echifa-web"
       AUTH_KEYCLOAK_SECRET: "echifa-web-secret"
       AUTH_KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
+
+      API_URL: "http://echifa-backend:8900"
+      NEXT_PUBLIC_API_URL: "http://167.86.79.16:8902"
     depends_on:
       keycloak:
         condition: service_healthy
+      echifa-backend:
+        condition: service_started
 
   segma-frontend:
     image: segma-frontend:latest
@@ -107,12 +113,18 @@ services:
       AUTH_URL: "http://167.86.79.16:3001"
       NEXTAUTH_URL: "http://167.86.79.16:3001"
       AUTH_SECRET: "change-this-secret"
+
       AUTH_KEYCLOAK_ID: "segma-web"
       AUTH_KEYCLOAK_SECRET: "segma-web-secret"
       AUTH_KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
+
+      API_URL: "http://segma-backend:8900"
+      NEXT_PUBLIC_API_URL: "http://167.86.79.16:8901"
     depends_on:
       keycloak:
         condition: service_healthy
+      segma-backend:
+        condition: service_started
 
 volumes:
   kc_postgres_data:

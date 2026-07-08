@@ -36,35 +36,19 @@ pipeline {
         stage('Build & Test') {
             parallel {
                 stage('SEGMA Backend') {
-                    steps {
-                        script {
-                            buildBackend("segma")
-                        }
-                    }
+                    steps { script { buildBackend("segma") } }
                 }
 
                 stage('SEGMA Frontend') {
-                    steps {
-                        script {
-                            buildFrontend("segma")
-                        }
-                    }
+                    steps { script { buildFrontend("segma") } }
                 }
 
                 stage('ECHIFA Backend') {
-                    steps {
-                        script {
-                            buildBackend("echifa")
-                        }
-                    }
+                    steps { script { buildBackend("echifa") } }
                 }
 
                 stage('ECHIFA Frontend') {
-                    steps {
-                        script {
-                            buildFrontend("echifa")
-                        }
-                    }
+                    steps { script { buildFrontend("echifa") } }
                 }
             }
         }
@@ -100,8 +84,6 @@ pipeline {
                     docker exec keycloak /opt/keycloak/bin/kcadm.sh update realms/cnas-sso \
                         -s sslRequired=NONE || true
 
-                    docker restart keycloak
-
                     echo "Keycloak HTTP mode configured successfully."
                 '''
             }
@@ -109,9 +91,7 @@ pipeline {
 
         stage('Status') {
             steps {
-                sh """
-                    docker ps
-                """
+                sh "docker ps"
             }
         }
     }
