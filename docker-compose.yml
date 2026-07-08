@@ -60,7 +60,7 @@ services:
       - "8901:8901"
     environment:
       PORT: "8901"
-      KEYCLOAK_ISSUER: "http://keycloak:8080/realms/cnas-sso"
+      KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
       KEYCLOAK_JWKS_URL: "http://keycloak:8080/realms/cnas-sso/protocol/openid-connect/certs"
     depends_on:
       keycloak:
@@ -74,7 +74,7 @@ services:
       - "8902:8902"
     environment:
       PORT: "8902"
-      KEYCLOAK_ISSUER: "http://keycloak:8080/realms/cnas-sso"
+      KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
       KEYCLOAK_JWKS_URL: "http://keycloak:8080/realms/cnas-sso/protocol/openid-connect/certs"
     depends_on:
       keycloak:
@@ -90,7 +90,9 @@ services:
       PORT: "3000"
       AUTH_URL: "http://167.86.79.16:3000"
       NEXTAUTH_URL: "http://167.86.79.16:3000"
-      AUTH_SECRET: "change-this-secret"
+      AUTH_SECRET: "replace-with-a-real-32-character-minimum-secret"
+      NEXTAUTH_SECRET: "replace-with-a-real-32-character-minimum-secret"
+      AUTH_TRUST_HOST: "true"
 
       AUTH_KEYCLOAK_ID: "echifa-web"
       AUTH_KEYCLOAK_SECRET: "echifa-web-secret"
@@ -114,7 +116,9 @@ services:
       PORT: "3001"
       AUTH_URL: "http://167.86.79.16:3001"
       NEXTAUTH_URL: "http://167.86.79.16:3001"
-      AUTH_SECRET: "change-this-secret"
+      AUTH_SECRET: "replace-with-a-real-32-character-minimum-secret"
+      NEXTAUTH_SECRET: "replace-with-a-real-32-character-minimum-secret"
+      AUTH_TRUST_HOST: "true"
 
       AUTH_KEYCLOAK_ID: "segma-web"
       AUTH_KEYCLOAK_SECRET: "segma-web-secret"
