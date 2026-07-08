@@ -3,7 +3,13 @@ import { Header } from "@/app/_lib/components/Header";
 import { redirect } from "next/navigation";
 
 async function getCards(accessToken: string) {
-  const res = await fetch("http://167.86.79.16:8902/api/admin/cards", {
+  const apiUrl = process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL;
+
+  if (!apiUrl) {
+    throw new Error("API_URL or NEXT_PUBLIC_API_URL environment variable is required");
+  }
+
+  const res = await fetch(`${apiUrl}/api/admin/cards`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

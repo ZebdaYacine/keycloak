@@ -57,9 +57,9 @@ services:
     container_name: segma-backend
     restart: always
     ports:
-      - "8901:8900"
+      - "8901:8901"
     environment:
-      PORT: "8900"
+      PORT: "8901"
       KEYCLOAK_ISSUER: "http://keycloak:8080/realms/cnas-sso"
       KEYCLOAK_JWKS_URL: "http://keycloak:8080/realms/cnas-sso/protocol/openid-connect/certs"
     depends_on:
@@ -71,9 +71,9 @@ services:
     container_name: echifa-backend
     restart: always
     ports:
-      - "8902:8900"
+      - "8902:8902"
     environment:
-      PORT: "8900"
+      PORT: "8902"
       KEYCLOAK_ISSUER: "http://keycloak:8080/realms/cnas-sso"
       KEYCLOAK_JWKS_URL: "http://keycloak:8080/realms/cnas-sso/protocol/openid-connect/certs"
     depends_on:
@@ -87,6 +87,7 @@ services:
     ports:
       - "3000:3000"
     environment:
+      PORT: "3000"
       AUTH_URL: "http://167.86.79.16:3000"
       NEXTAUTH_URL: "http://167.86.79.16:3000"
       AUTH_SECRET: "change-this-secret"
@@ -95,7 +96,7 @@ services:
       AUTH_KEYCLOAK_SECRET: "echifa-web-secret"
       AUTH_KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
 
-      API_URL: "http://echifa-backend:8900"
+      API_URL: "http://echifa-backend:8902"
       NEXT_PUBLIC_API_URL: "http://167.86.79.16:8902"
     depends_on:
       keycloak:
@@ -108,8 +109,9 @@ services:
     container_name: segma-frontend
     restart: always
     ports:
-      - "3001:3000"
+      - "3001:3001"
     environment:
+      PORT: "3001"
       AUTH_URL: "http://167.86.79.16:3001"
       NEXTAUTH_URL: "http://167.86.79.16:3001"
       AUTH_SECRET: "change-this-secret"
@@ -118,7 +120,7 @@ services:
       AUTH_KEYCLOAK_SECRET: "segma-web-secret"
       AUTH_KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
 
-      API_URL: "http://segma-backend:8900"
+      API_URL: "http://segma-backend:8901"
       NEXT_PUBLIC_API_URL: "http://167.86.79.16:8901"
     depends_on:
       keycloak:

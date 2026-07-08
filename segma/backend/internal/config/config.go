@@ -10,16 +10,16 @@ type Config struct {
 
 func Load() Config {
 	return Config{
-		Port:           getEnv("PORT", "8901"),
-		KeycloakIssuer: getEnv("KEYCLOAK_ISSUER", "http://167.86.79.16:8080/realms/cnas-sso"),
-		KeycloakJWKS:   getEnv("KEYCLOAK_JWKS_URL", "http://167.86.79.16:8080/realms/cnas-sso/protocol/openid-connect/certs"),
+		Port:           mustGetEnv("PORT"),
+		KeycloakIssuer: mustGetEnv("KEYCLOAK_ISSUER"),
+		KeycloakJWKS:   mustGetEnv("KEYCLOAK_JWKS_URL"),
 	}
 }
 
-func getEnv(key, fallback string) string {
+func mustGetEnv(key string) string {
 	value := os.Getenv(key)
 	if value == "" {
-		return fallback
+		panic(key + " environment variable is required")
 	}
 	return value
 }

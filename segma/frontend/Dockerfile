@@ -22,6 +22,4 @@ ENV NODE_ENV=production
 
 COPY --from=builder /app ./
 
-EXPOSE 3001
-
 CMD ["npm", "start"]
