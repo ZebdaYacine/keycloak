@@ -10,20 +10,16 @@
   "roles": {
     "realm": [
       {
-        "name": "cards:r",
-        "description": "Read cards"
-      },
-      {
-        "name": "cards:ri",
-        "description": "Read and Insert cards"
-      },
-      {
         "name": "cards:riu",
-        "description": "Read, Insert and Update cards"
+        "description": "Read, Insert and Update cards ECHIFA"
       },
       {
         "name": "cards:riud",
-        "description": "Full administrator"
+        "description": "Full administrator ECHIFA"
+      },
+      {
+        "name": "products:read",
+        "description": "Read SEGMA products"
       }
     ]
   },
@@ -84,7 +80,8 @@
       "enabled": true,
       "emailVerified": true,
       "realmRoles": [
-        "cards:riud"
+        "cards:riud",
+        "products:read"
       ],
       "credentials": [
         {
@@ -102,7 +99,8 @@
       "enabled": true,
       "emailVerified": true,
       "realmRoles": [
-        "cards:r"
+        "cards:r",
+        "products:read"
       ],
       "credentials": [
         {
