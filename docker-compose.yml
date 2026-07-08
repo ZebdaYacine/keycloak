@@ -7,8 +7,8 @@ services:
       - "8901:8900"
     environment:
       PORT: "8900"
-      KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
-      KEYCLOAK_JWKS_URL: "http://167.86.79.16:8080/realms/cnas-sso/protocol/openid-connect/certs"
+      KEYCLOAK_ISSUER: "http://keycloak:8080/realms/cnas-sso"
+      KEYCLOAK_JWKS_URL: "http://keycloak:8080/realms/cnas-sso/protocol/openid-connect/certs"
     depends_on:
       keycloak:
         condition: service_started
@@ -38,8 +38,8 @@ services:
       - "8902:8900"
     environment:
       PORT: "8900"
-      KEYCLOAK_ISSUER: "http://167.86.79.16:8080/realms/cnas-sso"
-      KEYCLOAK_JWKS_URL: "http://167.86.79.16:8080/realms/cnas-sso/protocol/openid-connect/certs"
+      KEYCLOAK_ISSUER: "http://keycloak:8080/realms/cnas-sso"
+      KEYCLOAK_JWKS_URL: "http://keycloak:8080/realms/cnas-sso/protocol/openid-connect/certs"
     depends_on:
       keycloak:
         condition: service_started
