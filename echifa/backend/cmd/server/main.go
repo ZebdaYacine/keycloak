@@ -27,8 +27,7 @@ func main() {
 
 	api.Get("/private", handlers.Private)
 
-	api.Get("/admin/cards", middleware.RequirePermission(middleware.CardAdmin), handlers.Cards)
-	// api.Get("/user/cards", middleware.RequirePermission(middleware.CardUser), handlers.Cards)
+	api.Get("/admin/cards", middleware.RequirePermission(middleware.CardUser), handlers.Cards)
 
 	log.Fatal(app.Listen(":" + cfg.Port))
 }

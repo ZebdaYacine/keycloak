@@ -105,6 +105,21 @@ pipeline {
                     docker exec keycloak /opt/keycloak/bin/kcadm.sh update realms/cnas-sso \
                         -s sslRequired=NONE || true
 
+                    docker exec keycloak /opt/keycloak/bin/kcadm.sh create roles \
+                        -r cnas-sso \
+                        -s name=products:read \
+                        -s 'description=Read SEGMA products' || true
+
+                    docker exec keycloak /opt/keycloak/bin/kcadm.sh add-roles \
+                        -r cnas-sso \
+                        --uusername cnas.admin \
+                        --rolename products:read || true
+
+                    docker exec keycloak /opt/keycloak/bin/kcadm.sh add-roles \
+                        -r cnas-sso \
+                        --uusername cnas.user \
+                        --rolename products:read || true
+
                     echo "Keycloak HTTP mode configured successfully."
                 '''
             }

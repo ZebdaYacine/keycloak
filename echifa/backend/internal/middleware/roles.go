@@ -8,7 +8,7 @@ import (
 
 const (
 	CardAdmin = "cards:riud"
-	CardUser  = "cards:riu"
+	CardUser  = "cards:r"
 )
 
 func RequirePermission(permission string) fiber.Handler {
